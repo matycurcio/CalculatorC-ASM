@@ -1,16 +1,13 @@
 #include <stdio.h>
 #include <string.h>
-#include <ctype.h>
 #include <stdbool.h>
 
 // Declaración de la variable global de error
 extern int error_code;
 
 void LeerPregunta(char *pregunta);
-int CalcularOperacion(int operando1, char operador, int operando2);
 void RespuestaError(int error_code);
 bool CheckOperador(char *token);
-bool CheckOperacionCompleta(int operando1, char operador, int operando2);
 
 extern int recibir_Operacion(int operando1, char operador, int operando2);
 
@@ -30,7 +27,7 @@ int main(){
 		}
 		
 		int operando1;
-		if (sscanf(token, "%d", &operando1) != 1) {
+		if ( strchr(token, ',') != NULL || strchr(token, '.') != NULL || sscanf(token, "%d", &operando1) != 1) {
 		    RespuestaError(-1);
 		    continue;
 		}
@@ -50,7 +47,7 @@ int main(){
 		}
 		
 		int operando2;
-		if (sscanf(token, "%d", &operando2) != 1) {
+		if ( strchr(token, ',') != NULL || strchr(token, '.') != NULL || sscanf(token, "%d", &operando2) != 1) {
 		    RespuestaError(-1);
 		    continue;
 		}
