@@ -34,7 +34,7 @@ div:
     cmp dl, 0
     je error                ; Saltar a error si dl es 0
     cdq                     ; Convertir ecx:eax para división
-    idiv ebx                ; Dividir eax entre ebx
+    idiv ecx                ; Dividir eax entre ecx
     ret
 
 error:
