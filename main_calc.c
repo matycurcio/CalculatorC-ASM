@@ -102,14 +102,3 @@ bool CheckOperador(char *token) {
     }
     return false;
 }
-
-
-
-
-
-
-
-
-
-
-
